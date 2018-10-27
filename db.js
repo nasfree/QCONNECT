@@ -34,17 +34,17 @@ var database = firebase.database().ref("users");
 							password: pass,
 						});
 
-						document.getElementById("login").innerHTML = "Welcome " + uname + "!";
-						var d = document.getElementById('form');
- 						d.parentNode.removeChild(form);
+						document.getElementById("p").innerHTML = "Welcome " + uname + "!";
+						// var d = document.getElementById('form');
+ 						// d.parentNode.removeChild(form);
 
- 						var b = document.createElement("BUTTON");
- 						var text = document.createTextNode("switch");
- 						b.appendChild(text);
- 						document.body.appendChild(b);
- 						b.addEventListener("click", function(){
-						    window.location.href="chatroom.html";
-						});
+ 						// var b = document.createElement("BUTTON");
+ 						// var text = document.createTextNode("switch");
+ 						// b.appendChild(text);
+ 						// document.body.appendChild(b);
+ 						// b.addEventListener("click", function(){
+						//     window.location.href="chatroom.html";
+						// });
  						// window.location.href="chatroom.html";
 					}
 					else{
