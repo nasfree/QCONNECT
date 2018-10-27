@@ -10,8 +10,6 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database().ref("users");
-			var room = "data";
-			var data;
 			var user = firebase.auth().currentUser;
 
 			function addInfo(){
