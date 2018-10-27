@@ -1,0 +1,96 @@
+body{
+  margin: 0;
+  background-color:#222;
+}
+header{
+  margin: 0;
+  background-color: #999;
+}
+header h2{
+  margin: 0;
+  display: inline;
+  color:#f2f2f2;
+}
+nav{
+  margin: 0;
+  background-color: #234;
+  overflow: hidden;
+}
+nav ul{
+  margin: 0;
+  display: inline;
+}
+nav ul li{
+  display: inline-block;
+  list-style-type: none;
+  padding: 5px 15px;
+
+}
+nav ul li a{
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 20px;
+}
+nav ul li a:hover{
+  text-align: center;
+  padding: 10px 20px;
+  background-color:#265;
+  text-decoration: none;
+  font-size: 20.5px;
+}
+nav ul li a.active{
+  text-align: center;
+  padding: 10px 20px;
+  background-color: #265;
+  text-decoration: none;
+  font-size: 20.5px;
+}
+button{
+  width: 100px;
+  height:25px;
+  background-color: green;
+  color: white;
+}
+#logout{
+  visibility: none;
+}
+#login{
+  float: right;
+  font-size: 25px;
+  font-family: Times New Roman;
+  color: white;
+}
+#top{
+  background-color: black;
+  padding-top: 5px;
+  font-family: Impact;
+  font-size: 25px;
+  margin: 0px;
+  color: white;
+}
+#form{
+  background-color: #299;
+  margin: 75px 300px;
+}
+#signup{
+  border-style: solid red 10px;
+  margin: 0px 200px;
+}
+.info{
+  margin-top: 20px;
+  width: 300px;
+  height: 50px;
+  text-align: center;
+
+}
+#btn{
+  width: 100px;
+  height: 50px;
+  margin-left: 110px;
+  margin-top: 20px;
+  background-color: #256;
+  color: white;
+  margin-bottom: 5px;
+}
