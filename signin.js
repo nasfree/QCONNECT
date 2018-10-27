@@ -8,3 +8,5 @@ var config = {
   messagingSenderId: "553778053970"
 };
 firebase.initializeApp(config);
+ let username = document.querySelector('#username');
+ let passWord = document.querySelector('#password')
