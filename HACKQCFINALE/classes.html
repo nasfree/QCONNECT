@@ -4,6 +4,16 @@
     <meta charset="utf-8">
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+    <script type="text/javascript">
+      function signOut(){
+        firebase.auth().signOut().then(function() {
+          alert("User Signed Out!");
+          // Sign-out successful.
+        }).catch(function(error) {
+          // An error happened.
+        });
+      }
+    </script>
     <title></title>
     <link rel= "stylesheet" href="style.css">
   <style>
@@ -66,7 +76,7 @@
           <h1> <span class="highlight">Q</span>Connect </h1>
         <nav>
           <ul>
-            <li class="current"><a href="homepage.html">Sign Out</a></li>
+            <li class="current"><a href="homepage.html" onclick="signOut()">Sign Out</a></li>
           </ul>
         </nav>
       </div>
