@@ -24,44 +24,60 @@
 		</script>
 		<script>
 			var database = firebase.database().ref();
+      var data = firebase.database().ref("users");
 			var room = "data";
 			var chats;
 			var user = firebase.auth().currentUser;
 			var build;
 			var building;
 			var use;
+      var username;
 
 			function onlo(){
-				var name = prompt("Enter Your Name:", "");
-				if (name == null || name == ""){
-					use = "Guest";
-					database.child("enters&leaves").push(
-						{
-							"entered": use,
-						}
-					 )
-				}
-				else{
-					use = name;
-					database.child("enters&leaves").push(
-						{
-							"entered": use,
-						}
-					 )
-				}
+        firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          var uid = user.uid;
+          data.child(uid).on('value',function(snapshot){
+            usersi = snapshot.val();
 
-			}
-
-			database.child("enters&leaves").on('value',function(snapshot){
-			    	chats = snapshot.val();
-					build = ""
-			        for(var key in chats){
-
-			            build +=  chats[key].entered +", ";
-			        }
-					document.getElementById("users").innerHTML = "In Chat: " +build;
-		    });
-
+              username = usersi.username;
+              console.log(username);
+          });
+          // User is signed in.
+        } else {
+          // No user is signed in.
+        }
+      });
+			// 	var name = prompt("Enter Your Name:", "");
+			// 	if (name == null || name == ""){
+			// 		use = "Guest";
+			// 		database.child("enters&leaves").push(
+			// 			{
+			// 				"entered": use,
+			// 			}
+			// 		 )
+			// 	}
+			// 	else{
+			// 		use = name;
+			// 		database.child("enters&leaves").push(
+			// 			{
+			// 				"entered": use,
+			// 			}
+			// 		 )
+			// 	}
+      //
+			// }
+      //
+			// database.child("enters&leaves").on('value',function(snapshot){
+			//     	chats = snapshot.val();
+			// 		build = ""
+			//         for(var key in chats){
+      //
+			//             build +=  chats[key].entered +", ";
+			//         }
+			// 		document.getElementById("users").innerHTML = "In Chat: " +build;
+		  //   });
+}
 
 
 			function send(){
@@ -69,9 +85,25 @@
 			  // var date = new Date();
 			  var message = document.getElementById("message").value;
 
+        if (user) {
+          var uid = user.uid;
+          data.child(uid).on('value',function(snapshot){
+            usersi = snapshot.val();
+
+              username = usersi.username;
+              console.log(username);
+
+
+          });
+          // User is signed in.
+        }
+        else {
+          // username = "guest";
+          // No user is signed in.
+        }
 			  database.child("chats").push(
 				{
-					"user": use,
+					"user": username,
 					"msg":message,
 				}
 			  )
@@ -81,7 +113,7 @@
 
 			database.child("chats").on('value',function(snapshot){
 	            chats = snapshot.val();
-				build = "";
+				      build = "";
 	            for(var key in chats){
 
 	                build += "<b>" + chats[key].user + "</b>: " + chats[key].msg + "<br>" + "<br>";
@@ -89,6 +121,8 @@
 	            }
 				document.getElementById("chatroom").innerHTML = build;
         		});
+
+
 
       function signOut(){
         firebase.auth().signOut().then(function() {
@@ -101,7 +135,7 @@
 		</script>
 
   </head>
-
+<body onload="onlo()">
     <header>
       <div class="container">
         <div id="branding">
@@ -114,7 +148,7 @@
             </ul>
           </nav>
     </header>
-    <body onload="onlo()">
+
 
     <div class="split left">
       <div class="centered">
