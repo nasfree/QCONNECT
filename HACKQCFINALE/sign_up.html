@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" style="
+background-color: #fbfbfb;
+">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content"width=device-width">
+    <title>QConnect | Welcome</title>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="db.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1> <span class="highlight">Q</span>Connect </h1>
+          <nav>
+            <ul>
+              <li class="current"><a href="homepage.html">Home</a></li>
+              <li class="current"><a href="login.html">Sign In</a></li>
+            </ul>
+          </nav>
+        </div>
+    </header>
+
+    <section id= "sign_up">
+      <div class="boxedL">
+          <form>
+            Create a Username:<br>
+            <input type="text" id="uname"><br>
+            <br>
+            Enter a Password:<br>
+            <input type="password" id="pass"><br>
+            <br>
+            <div>
+            Email: <br>
+            <input type="email" id="email"><br>
+            <br>
+            <button type="button" onclick="addInfo()" class="button_1">Sign Up</button>
+            </div>
+        </form>
+
+      </div>
+      </section>
+
+
+<footer>
+<p>A project by CSSI & Friends , Copyright &copy; 2018</p>
+</footer>
+
+  </body>
+</html>

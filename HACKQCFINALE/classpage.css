@@ -1,0 +1,116 @@
+/*  -------------------------------------------------header----------------------------------------------------*/
+header{
+  background: white;
+  color:black;
+  padding-top:30px;
+  min-height: 70px;
+  border-bottom:#b71c1c 4px solid;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  font-size: 20px;
+
+}
+header a{
+  color:#ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 20px;
+}
+
+
+header li{
+  float:left;
+  display:inline-flex;
+  padding: 0 20px 0 20px;
+}
+
+header #branding{
+  float:center;
+}
+
+header #branding h1{
+  margin:0;
+  float:left;
+
+}
+
+header nav{
+  float: right;
+  margin-top: 10px;
+}
+
+header .highlight, header .current a{
+  color: #b71c1c;
+  font-weight:bold;
+  text-align: center;
+}
+
+header a:hover{
+  color:#cccccc;
+  font-weight:bold;
+}
+
+header a{
+  color: black;
+  font-style: bold;
+}
+
+/*---------------CSS for login -------------------------------*/
+.boxedL {
+  width:300px;
+  height: 300px;
+  margin:auto;
+  margin-top: 100px;
+  overflow:hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #e6e6e6;
+  background-color:white;
+}
+
+.split {
+  height: 50%;
+  width: 50%;
+  position: fixed;
+  z-index: 1;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #white;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+  background-color: #e6e6e6;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: left;
+}
+
+/* Style the image inside the centered container, if needed */
+.centered img {
+  width: 150px;
+  border-radius: 50%;
+}
+/*  --------------------------------------------footer-------------------------------------------------------------------*/
+footer{
+  padding:20px;
+  margin-top: 415px;
+  color:white;
+  border-top:#b71c1c 4px solid;
+  background-color: #212121;
+  text-align: center;
+}

@@ -9,7 +9,7 @@
   };
   firebase.initializeApp(config);
 
-var database = firebase.database().ref("users");
+var database = firebase.database().ref("qconnect");
 			var user = firebase.auth().currentUser;
 
 			function addInfo(){
@@ -31,8 +31,9 @@ var database = firebase.database().ref("users");
 							email: email,
 							password: pass,
 						});
-
-						document.getElementById("p").innerHTML = "Welcome " + uname + "!";
+            let url = 'classes.html'
+            window.location = 'url'
+						// document.getElementById("p").innerHTML = "Welcome " + uname + "!";
 						// var d = document.getElementById('form');
  						// d.parentNode.removeChild(form);
 

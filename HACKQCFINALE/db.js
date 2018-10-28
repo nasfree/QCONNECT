@@ -34,7 +34,6 @@ var database = firebase.database().ref("users");
 							password: pass,
 						});
 
-						document.getElementById("p").innerHTML = "Welcome " + uname + "!";
 						// var d = document.getElementById('form');
  						// d.parentNode.removeChild(form);
 

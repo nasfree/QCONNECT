@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content"width=device-width">
+    <title>QConnect | Class Page</title>
+    <link rel="stylesheet" href="classpage.css">
+
+    <link rel="stylesheet" type="text/css" href="stylechat.css">
+		<style>
+		</style>
+		<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+		<script>
+		  // Initialize Firebase
+		  var config = {
+		    apiKey: "AIzaSyB2HNSqeSrfPSI4GV9KbKnOasWv_74mxnM",
+		    authDomain: "chatroom-89c53.firebaseapp.com",
+		    databaseURL: "https://chatroom-89c53.firebaseio.com",
+		    projectId: "chatroom-89c53",
+		    storageBucket: "chatroom-89c53.appspot.com",
+		    messagingSenderId: "700014798346"
+		  };
+		  firebase.initializeApp(config);
+		</script>
+		<script>
+			var database = firebase.database().ref();
+			var room = "data";
+			var chats;
+			var user = firebase.auth().currentUser;
+			var build;
+			var building;
+			var use;
+
+			function onlo(){
+				var name = prompt("Enter Your Name:", "");
+				if (name == null || name == ""){
+					use = "Guest";
+					database.child("enters&leaves").push(
+						{
+							"entered": use,
+						}
+					 )
+				}
+				else{
+					use = name;
+					database.child("enters&leaves").push(
+						{
+							"entered": use,
+						}
+					 )
+				}
+
+			}
+
+			database.child("enters&leaves").on('value',function(snapshot){
+			    	chats = snapshot.val();
+					build = ""
+			        for(var key in chats){
+
+			            build +=  chats[key].entered +", ";
+			        }
+					document.getElementById("users").innerHTML = "In Chat: " +build;
+		    });
+
+
+
+			function send(){
+
+			  // var date = new Date();
+			  var message = document.getElementById("message").value;
+
+			  database.child("chats").push(
+				{
+					"user": use,
+					"msg":message,
+				}
+			  )
+			  document.getElementById("message").value = "";
+
+			}
+
+			database.child("chats").on('value',function(snapshot){
+	            chats = snapshot.val();
+				build = "";
+	            for(var key in chats){
+
+	                build += "<b>" + chats[key].user + "</b>: " + chats[key].msg + "<br>" + "<br>";
+
+	            }
+				document.getElementById("chatroom").innerHTML = build;
+        		});
+
+		</script>
+
+  </head>
+
+    <header>
+      <div class="container">
+        <div id="branding">
+          <h1> <span class="highlight">Q</span>Connect </h1>
+          <nav>
+            <ul>
+              <li class="current"><a href="ENSARSPAGE.html">Home</a></li>
+              <li><a href="homepage.html">Signout</a></li>
+            </ul>
+          </nav>
+    </header>
+    <body onload="onlo()">
+
+    <div class="split left">
+      <div class="centered">
+        <h2>Class</h2>
+        <p>Homework</p>
+        <p>Test Review</p>
+        <p>Review Sheets</p>
+      </div>
+    </div>
+
+    <div class="split right">
+      <div class="centered">
+        <h2>Chat Room</h2>
+        <p><div id="users"><u><strong>In Chat:</strong></u></div>
+                <div id="main">
+                  <div id="chatroom"></div>
+                  <div id="info">
+                  <!-- <input type="text" id="name" placeholder="Enter Name"><br> -->
+                    <input type="text" id="message" placeholder="Enter Message"><button id="sendBtn" onclick="send()">Send</button>
+                  </div>
+                </div></p>
+      </div>
+    </div>
+    <section>
+    </div>
+  </section>
+
+<footer>
+<p>A project by CSSI & Friends , Copyright &copy; 2018</p>
+</footer>
+
+  </body>
+</html>
