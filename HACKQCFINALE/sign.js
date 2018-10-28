@@ -26,4 +26,12 @@ function signin(){
     alert(errorMessage);
   });
 
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      window.location.href = "classpage.html";
+      // User is signed in.
+    } else {
+      // No user is signed in.
+    }
+  });
 }

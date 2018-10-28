@@ -90,6 +90,14 @@
 				document.getElementById("chatroom").innerHTML = build;
         		});
 
+      function signOut(){
+        firebase.auth().signOut().then(function() {
+          alert("User Signed Out!");
+          // Sign-out successful.
+        }).catch(function(error) {
+          // An error happened.
+        });
+      }
 		</script>
 
   </head>
@@ -102,7 +110,7 @@
             <ul>
               <li class="current"><a href="classes.html">Home</a></li>
 <!-- add signout fucntion to signout and change to button -->
-              <li><a href="homepage.html">Signout</a></li>
+              <li><a href="homepage.html" onclick="signOut()">Signout</a></li>
             </ul>
           </nav>
     </header>
