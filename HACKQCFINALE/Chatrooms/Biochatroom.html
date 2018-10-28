@@ -26,7 +26,8 @@
 			var database = firebase.database().ref();
       var data = firebase.database().ref("users");
 			var room = "data";
-			var chats = firebase.database().ref("chats");
+			var chats;
+      var chatrooms = firebase.database().ref("chats");
 			var user = firebase.auth().currentUser;
 			var build;
 			var building;
@@ -101,7 +102,7 @@
           // username = "guest";
           // No user is signed in.
         }
-			  chats.child("Bio").push(
+			  chatrooms.child("Bio").push(
 				{
 					"user": username,
 					"msg":message,
@@ -111,7 +112,7 @@
 
 			}
 
-			database.child("chats").on('value',function(snapshot){
+			chatrooms.child("Bio").on('value',function(snapshot){
 	            chats = snapshot.val();
 				      build = "";
 	            for(var key in chats){
