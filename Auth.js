@@ -9,7 +9,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-var database = firebase.database().ref("users");
+var database = firebase.database().ref("qconnect");
 			var user = firebase.auth().currentUser;
 
 			function addInfo(){
