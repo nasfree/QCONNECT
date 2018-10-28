@@ -9,10 +9,17 @@
 <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
   </head>
   <body>
-    <h1>Please Sign In!</h1>
+    <!-- <h1>Please Sign In!</h1>
 <div id="firebaseui-auth-container"></div>
 <div id="loader">Loading...</div>
-    <script src="signin.js" charset="utf-8"></script>
+    <script src="signin.js" charset="utf-8"></script> -->
+    <form method="post">
+    <input type="text" id="uname" placeholder="Username"><br>
+    <input type="text" id="email" placeholder="Email"><br>
+    <input type="password" id="pass" placeholder="Password"><br>
+    <button type="button" onclick="addInfo()" name="button">Sign in</button>
+  </form>
     <script src="fireBaseCall.js" charset="utf-8"></script>
+    <script src="Auth.js" charset="utf-8"></script>
   </body>
 </html>

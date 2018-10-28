@@ -8,6 +8,7 @@ var config = {
   messagingSenderId: "553778053970"
 };
 firebase.initializeApp(config);
+ var database = firebase.database().ref("users");
  var ui = new firebaseui.auth.AuthUI(firebase.auth());
  uiConfig = {
   callbacks: {
@@ -25,15 +26,10 @@ firebase.initializeApp(config);
   },
   // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
   signInFlow: 'popup',
-  signInSuccessUrl: '<url-to-redirect-to-on-success>',
+  signInSuccessUrl: 'classes.html',
   signInOptions: [
     // Leave the lines as is for the providers you want to offer your users.
-    // firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-    // firebase.auth.FacebookAuthProvider.PROVIDER_ID,
-    // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
-    // firebase.auth.GithubAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID,
-    // firebase.auth.PhoneAuthProvider.PROVIDER_ID
   ],
   // Terms of service url.
   tosUrl: '<your-tos-url>',
@@ -41,3 +37,52 @@ firebase.initializeApp(config);
   privacyPolicyUrl: '<your-privacy-policy-url>'
 };
 ui.start('#firebaseui-auth-container', uiConfig);
+let user = firebase.auth().currentUser;
+let email = user.email;
+if(user){
+  var uid = user.uid;
+  database.child(uid).set({
+    email: email,
+    password: pass,
+  });
+}
+// function addInfo(){
+//   var uname = document.getElementById("uname").value;
+//   var email = document.getElementById("email").value;
+//   var pass = document.getElementById("pass").value;
+//
+//
+//   firebase.auth().createUserWithEmailAndPassword(email, pass).then(function (user){
+//   });
+//   firebase.auth().onAuthStateChanged(function(user) {
+//     var uname = document.getElementById("uname").value;
+//     var email = document.getElementById("email").value;
+//     var pass = document.getElementById("pass").value;
+//     if(user){
+//       var uid = user.uid;
+//       database.child(uid).set({
+//         username: uname,
+//         email: email,
+//         password: pass,
+//       });
+//
+//       document.getElementById("p").innerHTML = "Welcome " + uname + "!";
+//       // var d = document.getElementById('form');
+//       // d.parentNode.removeChild(form);
+//
+//       // var b = document.createElement("BUTTON");
+//       // var text = document.createTextNode("switch");
+//       // b.appendChild(text);
+//       // document.body.appendChild(b);
+//       // b.addEventListener("click", function(){
+//       //     window.location.href="chatroom.html";
+//       // });
+//       // window.location.href="chatroom.html";
+//     }
+//     else{
+//       return null;
+//     }
+//   });
+//
+//
+// }
