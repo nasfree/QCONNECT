@@ -5,10 +5,89 @@
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
     <title></title>
-  </head>
-  <body>
-    <p id = "greeting"></p>
-  </body>
+    <link rel= "stylesheet" href="style.css">
+  <style>
+
+    .button {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+    .button3 {
+    background-color: white;
+    color: black;
+    border: 2px solid #f44336;
+    }
+
+  .button3:hover {
+    background-color: #f44336;
+    color: white;
+  }
+
+
+  </style>
+  <style>
+  .vertical-menu {
+    position: absolute;
+    height: 200px;
+    width: 400px;
+    margin: -100px 0 0 -200px;
+    top: 33%;
+    left: 50%;
+  }
+  .active {
+    height:100;
+  }
+  .vertical-menu a {
+    background-color: #eee;
+    color: Black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+  }
+  .vertical-menu a:hover {
+    background-color: #ccc;
+  }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div id="branding">
+          <h1> <span class="highlight">Q</span>Connect </h1>
+        <nav>
+          <ul>
+            <li class="current"><a href="homepage.html">Sign Out</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- <h1> <b> Here is a list of Some of our Chat rooms!</b></h1> -->
+    <div class="vertical-menu">
+        <a href="" class = "active"><h1> <b> Here is a list of Some of our Chat rooms!</b></h1></a>
+        <a href="">Biology</a>
+        <a href="">Business</a>
+        <a href="Chatrooms/CSchatroom.html">Computer Science</a>
+        <a href="">Communications</a>
+        <a href="">Chemical Engineering</a>
+        <a href="">Economics</a>
+        <a href="">English</a>
+        <a href="">Government/Political Science</a>
+        <a href="">Nursing</a>
+        <a href="">Psychology</a>
+    </div>
+
+</body>
   <script src="fireBaseCall.js" charset="utf-8"></script>
   <script src="dommanipulation.js" charset="utf-8"></script>
 </html>

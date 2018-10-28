@@ -44,7 +44,7 @@ var database = firebase.database().ref("users");
  						// b.addEventListener("click", function(){
 						//     window.location.href="chatroom.html";
 						// });
- 						// window.location.href="chatroom.html";
+ 						window.location.href="chatroom.html";
 					}
 					else{
 						return null;

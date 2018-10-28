@@ -28,7 +28,7 @@ function signin(){
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      window.location.href = "classpage.html";
+      window.location.href = "classes.html";
       // User is signed in.
     } else {
       // No user is signed in.
